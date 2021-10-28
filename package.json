@@ -1,0 +1,29 @@
+{
+  "name": "autocheckinout",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "export": "next export",
+    "build": "next build && next export && npm run prepare",
+    "prepare": "mv out/_next out/assets && sed -i 's/\\/_next/\\/assets/g' out/**.html",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@chakra-ui/react": "^1.6.10",
+    "@emotion/react": "^11",
+    "@emotion/styled": "^11",
+    "axios": "^0.23.0",
+    "framer-motion": "^4",
+    "next": "11.1.2",
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
+  },
+  "devDependencies": {
+    "@types/react": "17.0.32",
+    "eslint": "8.1.0",
+    "eslint-config-next": "11.1.2",
+    "typescript": "4.4.4"
+  }
+}

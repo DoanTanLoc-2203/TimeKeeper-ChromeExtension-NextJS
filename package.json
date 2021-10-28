@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "export": "next export",
-    "build": "next build && next export && npm run prepare",
+    "build": "next build && next export && yarn prepare",
     "prepare": "mv out/_next out/assets && sed -i 's/\\/_next/\\/assets/g' out/**.html",
     "start": "next start",
     "lint": "next lint"

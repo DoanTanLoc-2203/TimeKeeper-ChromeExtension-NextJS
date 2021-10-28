@@ -10,6 +10,20 @@ function Timer({ getCurrentTime }: Props) {
   const [date, setdate] = React.useState("-");
 
   React.useEffect(() => {
+    const today = new Date();
+    const hours =
+      today.getHours() < 10 ? `0${today.getHours()}` : today.getHours();
+    const minutes =
+      today.getMinutes() < 10 ? `0${today.getMinutes()}` : today.getMinutes();
+    const seconds =
+      today.getSeconds() < 10 ? `0${today.getSeconds()}` : today.getSeconds();
+    const currentTime = hours + ":" + minutes + ":" + seconds;
+    settime(currentTime);
+    setdate(today.toUTCString().slice(0, 16));
+    getCurrentTime(currentTime);
+  }, []);
+
+  React.useEffect(() => {
     const timer = setInterval(() => {
       const today = new Date();
       const hours =

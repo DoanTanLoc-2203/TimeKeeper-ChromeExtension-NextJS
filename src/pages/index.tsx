@@ -13,8 +13,6 @@ const Loggin: NextPage = () => {
   const handleChangeLoggin = (value: LogginInfo) => {
     setinfo(value);
   };
-  const [timer, settimer] = useState("");
-
   return (
     <Flex
       w="500px"
@@ -32,11 +30,7 @@ const Loggin: NextPage = () => {
         justifyContent="center"
         alignItems="center"
         background="#181818">
-        <Timer
-          getCurrentTime={(value: string) => {
-            settimer(value);
-          }}
-        />
+        <Timer />
         <Controller />
       </Flex>
     </Flex>

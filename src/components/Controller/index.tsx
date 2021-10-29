@@ -36,7 +36,7 @@ const ButtonCheckout = styled.button`
 `;
 
 function Controller() {
-  const [checkin, setcheckin] = useState<string | null>("07:50:00");
+  const [checkin, setcheckin] = useState<string | null>("07:50");
   const [checkout, setcheckout] = useState<string | null>("17:10");
 
   useEffect(() => {
@@ -53,15 +53,15 @@ function Controller() {
   });
 
   const handleChangeCheckin = (event: ChangeEvent<HTMLInputElement>) => {
-    setcheckin(event.target.value + ":00");
+    setcheckin(event.target.value);
     if (typeof window !== "undefined") {
-      window.localStorage.setItem("checkinTime", event.target.value + ":00");
+      window.localStorage.setItem("checkinTime", event.target.value);
     }
   };
   const handleChangeCheckout = (event: ChangeEvent<HTMLInputElement>) => {
-    setcheckout(event.target.value + ":00");
+    setcheckout(event.target.value);
     if (typeof window !== "undefined") {
-      window.localStorage.setItem("checkoutTime", event.target.value + ":00");
+      window.localStorage.setItem("checkoutTime", event.target.value);
     }
   };
 
@@ -78,7 +78,7 @@ function Controller() {
         <Input
           ml="10px"
           type="time"
-          defaultValue={checkin !== null ? checkin : "00:00:00"}
+          defaultValue={checkin !== null ? checkin : "00:00"}
           onChange={(event) => {
             handleChangeCheckin(event);
           }}
@@ -95,7 +95,7 @@ function Controller() {
         <Input
           ml="10px"
           type="time"
-          defaultValue={checkout !== null ? checkout : "00:00:00"}
+          defaultValue={checkout !== null ? checkout : "00:00"}
           onChange={(event) => {
             handleChangeCheckout(event);
           }}
